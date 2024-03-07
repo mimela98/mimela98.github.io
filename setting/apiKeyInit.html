@@ -9,16 +9,17 @@
 <body>
 <label for="apiKeyInput">Api Key</label>
 <input id="apiKeyInput" type="text"/>
-<input type="button" value="submit" onclick=""/>
+<input type="button" value="submit" onclick="submitApiKey()"/>
 <script>
-$(() => {
-    let apiKey = localStorage.getItem("apiKey");
-    if(!apiKey) {
-        apiKey = prompt("insert Key");
-        localStorage.setItem("apiKey", apiKey);
+function submitApiKey() {
+    let key = $("#apiKeyInput").val();
+    if(!key) {
+        alert("insert api key");
+        return false;
     }
-    let charaName = prompt("insert name");
-});
+    setApiKey(key);
+    movePage("/");
+}
 </script>
 </body>
 </html>
