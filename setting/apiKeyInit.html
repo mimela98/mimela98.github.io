@@ -7,13 +7,18 @@
     <title>Loa Party</title>
 </head>
 <body>
-hello world
+<label for="apiKeyInput">Api Key</label>
+<input id="apiKeyInput" type="text"/>
+<input type="button" value="submit" onclick=""/>
 <script>
 $(() => {
+    let apiKey = localStorage.getItem("apiKey");
+    if(!apiKey) {
+        apiKey = prompt("insert Key");
+        localStorage.setItem("apiKey", apiKey);
+    }
     let charaName = prompt("insert name");
-    getCharaList(charaName);
 });
-
 </script>
 </body>
 </html>
