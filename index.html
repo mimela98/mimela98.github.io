@@ -8,6 +8,25 @@
 <body>
 hello world
 <script>
+$(() => {
+    let apiKey = localStorage.getItem("apiKey");
+    if(!apiKey) {
+        apiKey = confirm("insert Key");
+        localStorage.setItem("apiKey", apiKey);
+    }
+    let charaName = confirm("insert name");
+    $.ajax({
+        type: "GET",
+        url: "https://developer-lostark.game.onstove.com/characters/" + charaName + "/siblings",
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Content-type","application/json");
+            xhr.setRequestHeader("authorization","bearer " + apiKey);
+        },
+        success: function (res) {
+            console.log(res);
+        }
+    });
+});
 
 
 </script>
