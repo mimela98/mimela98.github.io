@@ -3,10 +3,10 @@ const KEY = "_API_KEY_";
 function getCharaList(name, callback) {
     $.ajax({
         type: "GET",
-        url: "https://developer-lostark.game.onstove.com/characters/" + getApiKey() + "/siblings",
+        url: "https://developer-lostark.game.onstove.com/characters/" + name + "/siblings",
         beforeSend: function (xhr) {
             xhr.setRequestHeader("Content-type","application/json");
-            xhr.setRequestHeader("authorization","bearer " + apiKey);
+            xhr.setRequestHeader("authorization","bearer " + getApiKey());
         },
         success: (res) => {
             console.log(res);
@@ -31,5 +31,5 @@ function setApiKey(apiKey) {
 }
 
 function movePage(path) {
-    location.href = "" + path;
+    location.href = path;
 }
