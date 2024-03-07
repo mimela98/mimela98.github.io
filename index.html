@@ -11,10 +11,10 @@ hello world
 $(() => {
     let apiKey = localStorage.getItem("apiKey");
     if(!apiKey) {
-        apiKey = confirm("insert Key");
+        apiKey = prompt("insert Key");
         localStorage.setItem("apiKey", apiKey);
     }
-    let charaName = confirm("insert name");
+    let charaName = prompt("insert name");
     $.ajax({
         type: "GET",
         url: "https://developer-lostark.game.onstove.com/characters/" + charaName + "/siblings",
